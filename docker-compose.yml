@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: upi-offline-mesh-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: upi_mesh
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3306:3306"
+    volumes:
+      - upi-mesh-mysql-data:/var/lib/mysql
+
+volumes:
+  upi-mesh-mysql-data:
